@@ -158,3 +158,64 @@ quest = [{'titulo': 'Qual o resultado da operação 57 + 32?',
           'opcoes': {'A': 'Uma banda de Rock', 'B': 'Uma marca de luxo', 'C': 'Cidade Francesa', 'D': 'Morte de tecido orgânico'},
           'correta': 'D'}
         ]
+
+
+import random
+def sorteia_questao(dici, nivel):
+    lista_questoes = {}
+
+    indice = 1
+    for chave,valor in dici.items():
+        if chave == nivel:
+            for e in valor:
+                lista_questoes[indice] = e
+                indice += 1
+    num = len(lista_questoes)
+    return lista_questoes[random.randint(1,num)]
+
+def sorteia_questao_inedita(dici, nivel, lista):
+    while True:
+        questao = sorteia_questao(dici, nivel)
+        if questao not in lista:
+            lista.append(questao)
+            break
+    
+    return questao
+  
+  
+def questao_para_texto (D,ID):
+    return ("----------------------------------------"
+    '\n'
+    "QUESTAO {0}"
+    '\n'
+    '\n'
+    "{1}"
+    '\n'
+    '\n'
+    "RESPOSTAS:"
+    '\n'
+    "A: {2}"
+    '\n'
+    "B: {3}"
+    '\n'
+    "C: {4}"
+    '\n'
+    "D: {5}"
+    ).format(ID,D["titulo"],D["opcoes"]["A"],D["opcoes"]["B"],D["opcoes"]["C"],D["opcoes"]["D"])
+    
+def gera_ajuda(x):
+    incorreto = []
+    correto = x['correta']
+    opc = x['opcoes']
+    for i in opc.keys():
+        if i != correto:
+            incorreto.append(i)
+    num = random.randint(1, 2)
+    if num == 1:
+        ajuda = random.choice(incorreto)
+        return 'DICA:\nOpções certamente erradas: {0}'.format(opc[ajuda])
+    if num == 2:
+        ajuda = random.choice(incorreto)
+        incorreto.remove(ajuda)
+        ajs2 = random.choice(incorreto)
+        return 'DICA:\nOpções certamente erradas: {0} e {1}'.format(opc[ajuda], opc[ajs2])
