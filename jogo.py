@@ -109,6 +109,8 @@ while jogo :
             
     
             
+    
+            
             
             
             
