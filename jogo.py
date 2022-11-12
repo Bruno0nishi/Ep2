@@ -68,34 +68,34 @@ while jogo :
             break 
     # ajudas 
     if resposta == 'ajuda' and ajuda_rodada != 0 :
-        questao_aleatoria = questao_jogada_texto['opcoes']['A']
+        #questao_aleatoria = questao_jogada_texto['opcoes']['A']
         receber_ajuda = gera_ajuda(questao_sorteada)
         ajuda_rodada -= 1 
         
         if ajuda < 0 :
             print ('Não deu! Você  não tem mais direito a ajudas !')
-            continuar = input('Aperte ENTER para começar...')
+            continuar = input('Aperte ENTER para continuar...')
             if continuar == '':
                 print('')
                 
         if ajuda == 1 :
             print('OK, lá vem ajuda')   
             print('atenção você não tem mais direito a ajudas')  
-            continuar = input('Aperte ENTER para começar...')
+            continuar = input('Aperte ENTER para continuar...')
             if continuar == '':
                 print('')
             print(f'DICA''\n''opções certamente erradas {questao_aleatoria}')
-            continuar = input('Aperte ENTER para começar...')
+            continuar = input('Aperte ENTER para continuar...')
             if continuar == '':
                 print('')
                 
         if ajuda == 2 :
             print('OK, lá vem ajuda! Você tem direito a mais uma ajuda.') 
-            continuar = input('Aperte ENTER para começar...')
+            continuar = input('Aperte ENTER para continuar...')
             if continuar == '':
                 print('') 
             print(f'DICA''\n''opções certamente erradas {questao_aleatoria}')
-            continuar = input('Aperte ENTER para começar...')
+            continuar = input('Aperte ENTER para continuar...')
             if continuar == '':
                 print('')
         print(questao_jogada_texto) 
@@ -106,6 +106,8 @@ while jogo :
             if resposta == 'ajuda':
                 print ('Que pena! Você errou e vai sair pobre')
                 break
+            
+            
             
     
             
