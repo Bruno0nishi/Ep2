@@ -1,5 +1,7 @@
 import random
 
+
+# já utilizada 
 def transforma_base(lista):
     dicionario = {}
     lista_facil = []
@@ -21,16 +23,11 @@ def transforma_base(lista):
 def valida_questao(dici):
     retorno = {}
     num = 0
-
-
     if 'titulo' in dici:
         if len(dici["titulo"].strip()) == 0:
             retorno["titulo"] = 'vazio'
     else:
         retorno["titulo"] = 'vazio'
-
-
-            
     if 'nivel' in dici:
         if dici["nivel"] == "facil":
             pass
@@ -114,39 +111,21 @@ def valida_questoes(lista):
         
     return lista_final
 
-def sorteia_questao(dici, nivel):
-    lista_questoes = {}
-
-    indice = 1
-    for chave,valor in dici.items():
-        if chave == nivel:
-            for e in valor:
-                lista_questoes[indice] = e
-                indice += 1
-    num = len(lista_questoes)
-    return lista_questoes[random.randint(1,num)]
 
 def sorteia_questao(dici, nivel):
-    lista_questoes = {}
-
-    indice = 1
-    for chave,valor in dici.items():
-        if chave == nivel:
-            for e in valor:
-                lista_questoes[indice] = e
-                indice += 1
-    num = len(lista_questoes)
-    return lista_questoes[random.randint(1,num)]
-
+    x = random.choice(dici[nivel])
+    return x 
+        
+# já utilizada 
 def sorteia_questao_inedita(dici, nivel, lista):
-    while True:
-        questao = sorteia_questao(dici, nivel)
-        if questao not in lista:
-            lista.append(questao)
-            break
-    
-    return questao
-
+    T = True 
+    while T==True:
+        q = random.choice(dici[nivel])
+        if q not in lista :
+            T = False 
+            lista.append(q)
+        return q 
+# já utilizada 
 def questao_para_texto (D,ID):
     return ("----------------------------------------"
     '\n'
@@ -183,5 +162,4 @@ def gera_ajuda(x):
         ajuda = random.choice(incorreto)
         incorreto.remove(ajuda)
         ajs2 = random.choice(incorreto)
-        return 'DICA:\nOpções certamente erradas: {0} e {1}'.format(opc[ajuda],opc[ajs2])
-
+        return 'DICA:\nOpções certamente erradas: {0} e {1}'.format(opc[ajuda], opc[ajs2])
