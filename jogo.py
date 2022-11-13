@@ -9,7 +9,6 @@ ajuda = 2
 facil = 0 
 
 questao_para_jogo = transforma_base(questao)
-usadas = []
 numero = 0 
 
 
@@ -29,9 +28,10 @@ continuar = input('Aperte ENTER para começar...')
         
 jogo = True         
 while jogo :
+    usadas = []
     
 # questões fáceis 
-    if dinheiro>= 0 and dinheiro < 30000:
+    if dinheiro>= 0 and dinheiro < 10000:
         numero += 1 
         questao_sorteada = sorteia_questao(questao_para_jogo, 'facil')
         nova_questao = sorteia_questao_inedita(questao_para_jogo, 'facil', usadas)

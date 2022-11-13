@@ -1,7 +1,4 @@
 import random
-
-
-# já utilizada 
 def transforma_base(lista):
     dicionario = {}
     lista_facil = []
@@ -20,103 +17,46 @@ def transforma_base(lista):
     return dicionario
 
 
-def valida_questao(dici):
-    retorno = {}
-    num = 0
-    if 'titulo' in dici:
-        if len(dici["titulo"].strip()) == 0:
-            retorno["titulo"] = 'vazio'
-    else:
-        retorno["titulo"] = 'vazio'
-    if 'nivel' in dici:
-        if dici["nivel"] == "facil":
-            pass
-        elif dici["nivel"] == "medio":
-            pass
-        elif dici["nivel"] == "dificil":
-            pass
+def valida_questao(questao):
+    dic = {}
+    chaves = ["titulo", "nivel", "opcoes", "correta"]
+    nivels = ["facil", "medio", "dificil"]
+    letras = ["A", "B", "C", "D"]
+    for chave in chaves:
+        if chave not in questao:
+            dic[chave] = "nao_encontrado"
+    if len(questao) != 4:
+        dic["outro"] = "numero_chaves_invalido"
+    if chaves[0] in questao:
+        if questao["titulo"].strip() == "":
+            dic["titulo"] = "vazio"
+    if chaves[1] in questao:
+        if questao["nivel"] not in nivels:
+            dic["nivel"] = 'valor_errado'
+    if chaves[2] in questao:
+        if len(questao["opcoes"]) != 4:
+            dic["opcoes"] = 'tamanho_invalido'
         else:
-            retorno['nivel'] = 'valor_errado'
-    else:
-        retorno['nivel'] = 'valor_errado'
-
-    num = 0
-    dici_op = {}
-
-    if 'opcoes' in dici:
-        for x in dici["opcoes"]:
-            num += 1
-        if num != 4:
-            retorno['opcoes'] = 'tamanho_invalido'
-        else:
-            indice = 0
-            indice_vazio = 0
-            for c,v in dici['opcoes'].items():
-                if 'A' in c:
-                    indice += 1
-                    if len(v.strip()) == 0:
-                        dici_op['A'] = 'vazia'
-                        indice_vazio +=1
-                if 'B' in c:
-                    indice += 1
-                    if len(v.strip()) == 0:
-                        dici_op['B'] = 'vazia'
-                        indice_vazio +=1
-                if 'C' in c:
-                    indice += 1
-                    if len(v.strip()) == 0:
-                        dici_op['C'] = 'vazia'
-                        indice_vazio +=1
-                if 'D' in c:
-                    indice += 1
-                    if len(v.strip()) == 0:
-                        dici_op['D'] = 'vazia'
-                        indice_vazio +=1
-            if indice != 4:
-                retorno['opcoes'] = 'chave_invalida_ou_nao_encontrada'
-            else:
-                if indice_vazio != 0:
-                    retorno['opcoes'] = dici_op
-    else:
-        retorno['opcoes'] = 'chave_nao_encontrada'
-        
-    if 'correta' in dici:
-        if dici["correta"] == "A":
-            pass
-        elif dici["correta"] == "B":
-            pass
-        elif dici["correta"] == "C":
-            pass
-        elif dici["correta"] == "D":
-            pass
-        else:
-            retorno['correta'] = 'valor_errado'
-    else:
-        retorno['correta'] = 'nao_encontrado'
-
-    if len(dici) != 4:
-        retorno["outro"] ='numero_chaves_invalido'
-    return retorno 
-
-
-def valida_questoes(lista):
-    retorno = {}
-    lista_final = []
-    num = 0
-    for x in lista:
-        print(x)
-        num += 1
-        retorno[num] = valida_questao(x)
-        lista_final.append(retorno[num])
-        
-    return lista_final
+            for option in letras:
+                if option not in questao["opcoes"]:
+                    dic["opcoes"] = "chave_invalida_ou_nao_encontrada"
+            for option in letras:
+                if questao["opcoes"][option].strip() == "":
+                    if "opcoes" not in dic: 
+                        dic["opcoes"] = {f'{option}': 'vazia'}
+                    else:
+                        dic["opcoes"][option]  = "vazia"
+    if chaves[3] in questao:
+        if questao["correta"] not in letras: 
+            dic["correta"] = 'valor_errado'
+    return dic
 
 
 def sorteia_questao(dici, nivel):
     x = random.choice(dici[nivel])
     return x 
         
-# já utilizada 
+
 def sorteia_questao_inedita(dici, nivel, lista):
     T = True 
     while T:
@@ -125,7 +65,7 @@ def sorteia_questao_inedita(dici, nivel, lista):
             T = False 
             lista.append(q)
         return q 
-# já utilizada 
+
 def questao_para_texto (D,ID):
     return ("----------------------------------------"
     '\n'
