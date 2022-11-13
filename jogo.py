@@ -2,7 +2,7 @@ from questoes import*
 from trasformabase import*
 from funcoes import* 
 
-dinheiro = [0, 1000, 5000, 10000, 30000, 50000, 100000, 300000, 500000, 1000000]
+dinheiro = 0
 rodada = 0
 pulo = 3
 ajuda = 2 
@@ -105,7 +105,7 @@ while jogo :
             resposta = input('qual a sua resposta?: ')
             if resposta == 'ajuda':
                 print ('Que pena! Você errou e vai sair pobre')
-                break
+                break 
             
             
             
