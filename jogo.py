@@ -105,7 +105,36 @@ while jogo :
             resposta = input('qual a sua resposta?: ')
             if resposta == 'ajuda':
                 print ('Que pena! Você errou e vai sair pobre')
-                break 
+                break
+    if resposta == questao_jogada_texto['correta']:
+        rodada += 1
+        # PONTUAÇÃO A CADA QUESTÃO 
+        if rodada == 1:
+            dinheiro = 1000
+        elif rodada== 2:
+            dinheiro = 5000
+        elif rodada == 3:
+            dinheiro = 10000
+            print('HEY! Você passou para o nível MEDIO!')
+        elif rodada == 4:
+            dinheiro = 30000
+        elif rodada == 5:
+            dinheiro  = 50000
+        elif rodada == 6:
+            dinheiro = 100000
+            print('HEY! Você passou para o nível DIFICIL!')
+        elif rodada == 7:
+            dinehiro = 300000
+        elif rodada == 8:
+            dinheiro = 500000
+        elif rodada == 9:
+            print('PARABÉNS, você zerou o jogo e ganhou um milhão de reais! ')
+            dinheiro = 1000000
+            break
+        print(f'Voce acertou!! Seu premio atual e de R$ {dinheiro}')
+        continuar = input('Aperte ENTER para continuar...')
+        if continuar == '':
+            print('')
             
             
             
