@@ -2,6 +2,21 @@ questao = [{'titulo': 'Qual o resultado da operação 57 + 32?',
           'nivel': 'facil',
           'opcoes': {'A': '-19', 'B': '85', 'C': '89', 'D': '99'},
           'correta': 'C'},
+           
+         {'titulo': 'Qual o resultado da operação 21 + 17?',
+          'nivel': 'facil',
+          'opcoes': {'A': '-10', 'B': '80', 'C': '38', 'D': '37'},
+          'correta': 'C'},
+         
+         {'titulo': 'Qual o resultado da multiplicação 12 * 11?',
+          'nivel': 'facil',
+          'opcoes': {'A': '132', 'B': '122', 'C': '80', 'D': '97'},
+          'correta': 'A'},
+         
+         {'titulo': 'Quantos continentes possui o globo terrestre? ',
+          'nivel': 'facil',
+          'opcoes': {'A': '5', 'B': '4', 'C': '7', 'D': '6'},
+          'correta': 'D'},
 
          {'titulo': 'Qual a capital do Brasil?',
           'nivel': 'facil',
@@ -156,5 +171,20 @@ questao = [{'titulo': 'Qual o resultado da operação 57 + 32?',
          {'titulo': 'O que é Necrose?',
           'nivel': 'dificil',
           'opcoes': {'A': 'Uma banda de Rock', 'B': 'Uma marca de luxo', 'C': 'Cidade Francesa', 'D': 'Morte de tecido orgânico'},
-          'correta': 'D'}
+          'correta': 'D'},
+         
+         {'titulo': 'qunatos metros tem o maior prédio do mundo?',
+          'nivel': 'dificil',
+          'opcoes': {'A': '828', 'B': '749', 'C': '921', 'D': '890'},
+          'correta': 'A'},
+         
+         {'titulo': 'Uma minhoca é um :',
+          'nivel': 'dificil',
+          'opcoes': {'A': 'Antrópode', 'B': 'Molusco', 'C': 'Anelídeo', 'D': 'Platelminto'},
+          'correta': 'C'},
+         
+         {'titulo': 'Com quantos anos faleceu Charles Darwin?',
+          'nivel': 'dificil',
+          'opcoes': {'A': '68', 'B': '73', 'C': '76', 'D': '81'},
+          'correta': 'B'}
         ]
