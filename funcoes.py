@@ -119,7 +119,7 @@ def sorteia_questao(dici, nivel):
 # já utilizada 
 def sorteia_questao_inedita(dici, nivel, lista):
     T = True 
-    while T==True:
+    while T:
         q = random.choice(dici[nivel])
         if q not in lista :
             T = False 
@@ -154,7 +154,8 @@ def gera_ajuda(x):
     for i in opc.keys():
         if i != correto:
             incorreto.append(i)
-    num = random.randint(1, 2)
+    #num = random.randint(1, 2)
+    num = 1
     if num == 1:
         ajuda = random.choice(incorreto)
         return 'DICA:\nOpções certamente erradas: {0}'.format(opc[ajuda])
